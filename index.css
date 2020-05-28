@@ -1,9 +1,23 @@
+@font-face {
+    font-family: titleFont; /*a name to be used later*/
+    src: url(sansation_light.woff); /*URL to font*/
+}
+
 h1 {
-  color: Salmon;
-  font-family:cursive;
+  color: MistyRose;
+  font-family:titleFont;
   font-size: 70px;
   display: flex;
   justify-content: center;
-  background-color: MediumSeaGreen;
+  background-color: MediumAquamarine;
 
+}
+
+
+body{
+  padding: 100px;
+  font-family: sans-serif;
+}
+.game-title{
+  font-size: 50px;
 }
