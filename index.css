@@ -1,0 +1,9 @@
+h1 {
+  color: Salmon;
+  font-family:cursive;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  background-color: MediumSeaGreen;
+
+}
