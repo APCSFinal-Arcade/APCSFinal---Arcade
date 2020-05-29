@@ -7,12 +7,72 @@ h1 {
   background-color: white;
 
 }
+h2{
+
+}
 body {
+  padding-top: 100px;
+  padding-bottom: 100px;
   color: black;
   font-family: sans-serif;
-  padding: 100px;
+
+}
+.wc{
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.intro{
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+.up1{
+  background-color: lightGreen;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+.up2{
+  background-color: lavender;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+.up3{
+  background-color: maroon;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  margin-bottom: 25px;
 }
 
+.start{
+  display:flex;
+  justify-content: center;
+}
+.row{
+  display: flex;
+  justify-content: center;
+
+}
+.mole{
+  margin-left: 6px;
+  margin-right: 6px;
+  padding: 5px;
+}
+
+
 .BOARD{
-  float: center;
+  outline: 5px dashed brown;
+  margin-left: 200px;
+  margin-right: 200px;
+
+
+
 }
