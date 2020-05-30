@@ -6,7 +6,7 @@
   </head>
   <body>
     <div class="header">
-      <h1><a href="index.html">Arcade</a></h1>
+      <h1><a href="index.html"> <img src="APCSArcadeLogo" alt="APCS Arcade"> </a></h1>
     </div>
 
     <div class="intro">
@@ -32,7 +32,7 @@
         <br> <p><b>Chaos Control</b></p><br>
         <img src="https://i.ytimg.com/vi/wYF7T_C4cIs/hqdefault.jpg" alt="shadow the hedgehog" height="200">
         <p>The future is now, thanks to SCIENCE! Use Chaos Control to slow down the moles' perception of time by 50%!<br>
-          Cost: 5 <br>Duration: 5 seconds <br>Key: Q<br>
+          Cost: 5 <br>Duration: 8 seconds <br>Key: Q<br>
         </p>
       </div>
       <div class="up2">
@@ -106,6 +106,27 @@
     <script>
       var score = 0
       var time = 60
+      var gameRun = true
+      var moleTime = 2000
+      document.body.onkeydown = function(e){
+        if(e.keyCode == 81){
+          chaosControl()
+        }
+        else if (e.keyCode == 87) {
+          jaraxxus()
+        }
+        else if(e.keyCode == 69){
+          covid()
+        }
+
+      }
+
+
+      chaosControl(){
+        score=score-5
+        moleTime=4000
+        setTimeout(function(){moleTime = 2000}, 8000)
+      }
 
 
       function gameLoop(){
@@ -116,9 +137,9 @@
 
 
 
-
       }
       function gameOver(){
+        gameRun = false
         document.write("Game Over! Your score is: "+score+"!<br>")
         if(score==69){
           document.write("That's a NICE score!")
@@ -134,7 +155,7 @@
           var num1 = Math.ceil(Math.random()*5)
           var num2 = Math.ceil(Math.random()*5)
           document.getElementById('mole'+num1+num2).style.visibility="visible"
-          setTimeout(function(){despawnMole(num1,num2)}, 2000)
+          setTimeout(function(){despawnMole(num1,num2)}, moleTime)
         }
 
       }
