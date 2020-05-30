@@ -55,6 +55,7 @@ body {
 .start{
   display:flex;
   justify-content: center;
+  margin: 25px;
 }
 .row{
   display: flex;
@@ -69,12 +70,24 @@ body {
 
 
 .BOARD{
+  margin: 25px;
   outline: 5px dashed brown;
   margin-left: 200px;
   margin-right: 200px;
 
 }
-.disp{margin-left: 200px;
-margin-right: 200px;
+.disp{
+  margin-left: 200px;
+  margin-right: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 
+}
+.upgrades{
+  margin-left: 25px;
+  margin-right: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

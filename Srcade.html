@@ -50,8 +50,11 @@
         <button type="startgame" id="startbutton" onclick="gameLoop()"><img src="https://www.pngitem.com/pimgs/m/157-1579149_transparent-start-button-png-pixel-game-start-button.png" alt="start" height="100"></button>
       </div>
     </div>
-    <p class="disp">Time: </p>
-    <p  class="disp" id ="timeDisp">60</p>
+    <div class = "disp">
+      <p >Time: </p>
+      <p   id ="timeDisp">60</p>
+
+    </div>
 
 
     <div class="BOARD">
@@ -100,8 +103,16 @@
     <br>
 
   </div>
-    <p class="disp">Score: </p>
-    <p class="disp" id = "scoreDisp">0</p>
+  <div class = "disp">
+    <p >Score: </p>
+    <p  id = "scoreDisp">0</p>
+    <div class = upgrades>
+      <img src="https://i.ytimg.com/vi/wYF7T_C4cIs/hqdefault.jpg" alt="CC" height = "50" id = "CC" margin="15">
+      <img src="https://i1.sndcdn.com/artworks-000069333301-z6siun-t500x500.jpg" alt="jaraxxus" height = "50" id = "jaraxxus" margin="15">
+      <img src="https://images.newscientist.com/wp-content/uploads/2020/02/11165812/c0481846-wuhan_novel_coronavirus_illustration-spl.jpg" alt="covid" height = "50" id = "covid" margin="15">
+    </div>
+
+  </div>
 
     <script>
       var score = 0
@@ -119,15 +130,46 @@
         else if(e.keyCode == 69){
           covid()
         }
+        document.getElementById('scoreDisp').innerHTML=score;
 
       }
 
-
-      chaosControl(){
-        score=score-5
-        moleTime=4000
-        setTimeout(function(){moleTime = 2000}, 8000)
+      var cc = true
+      function chaosControl(){
+        if(cc){
+          document.getElementById("CC").style.visibility="hidden";
+          score=score-5
+          moleTime=4000
+          setTimeout(function(){moleTime = 2000}, 8000)
+          cc=false
+          setTimeout(function(){cc=true;document.getElementById("CC").style.visibility="visible"}, 10000)
+        }
       }
+
+      var jar = true
+      function jaraxxus(){
+        if(jar){
+          document.getElementById("jaraxxus").style.visibility="hidden";
+          score=score-5
+
+          jar=false
+          setTimeout(function(){jar=true;document.getElementById("jaraxxus").style.visibility="visible"}, 10000)
+        }
+      }
+
+      var cov = true
+      function covid(){
+        if(cov){
+          document.getElementById("covid").style.visibility="hidden";
+          score=score-5
+
+          cov=false
+          setTimeout(function(){cov=true;document.getElementById("covid").style.visibility="visible"}, 10000)
+        }
+      }
+
+
+
 
 
       function gameLoop(){
