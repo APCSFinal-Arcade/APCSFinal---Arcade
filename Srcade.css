@@ -30,6 +30,8 @@ body {
   background-color: lightGreen;
   background-image: url("chaoscontrol.jpeg");
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 20px;
