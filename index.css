@@ -17,7 +17,11 @@ h1 {
 body{
   padding: 100px;
   font-family: sans-serif;
+  background-color: lightgray;
 }
 .game-title{
   font-size: 50px;
+}
+.logo{
+  background-color: white
 }
