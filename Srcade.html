@@ -32,19 +32,19 @@
         <br> <p><b>Chaos Control</b></p><br>
         <img src="https://i.ytimg.com/vi/wYF7T_C4cIs/hqdefault.jpg" alt="shadow the hedgehog" height="200">
         <p>The future is now, thanks to SCIENCE! Use Chaos Control to slow down the moles' perception of time by 50%!<br>
-          Cost: 5 <br>Duration: 8 seconds <br>Key: Q<br>
+          Cost: 5 <br>Duration: 8 seconds <br>Cooldown: 8 seconds <br>Key: Q<br>
         </p>
       </div>
       <div class="up2">
         <p><b>Summon Jaraxxus, eredar lord of the Burning Legion</b></p>
         <img src="https://i1.sndcdn.com/artworks-000069333301-z6siun-t500x500.jpg" alt="you face Jaraxxus, eradar lord of the Burning Legion" height="200">
         <p>The enemy faces Jaraxxus, eradar lord of the Burning Legion! Unleash his wrath in a burst of fire, instantly clearing all visible moles. <br>
-        Cost: 5 <br>Key: W</p>
+        Cost: 5 <br>Cooldown: 5 seconds <br>Key: W</p>
       </div>
       <div class="up3">
         <p><b>COVID-19</b></p>
         <img src="https://images.newscientist.com/wp-content/uploads/2020/02/11165812/c0481846-wuhan_novel_coronavirus_illustration-spl.jpg" alt="wuhan fluman" height="200">
-        <br><p>Stay home, stay safe! All moles who surface during this time will die after 1 second. <br>Cost: 5 <br>Duration: 5 seconds <br>Key: E</p>
+        <br><p>Stay home, stay safe! On your next click, all adjacent moles will die, as well as the moles adjacent to those. <br>Cost: 2 <br>Cooldown: 10 seconds<br>Key: E</p>
       </div>
       <div class="start">
         <button type="startgame" id="startbutton" onclick="gameLoop()"><img src="https://www.pngitem.com/pimgs/m/157-1579149_transparent-start-button-png-pixel-game-start-button.png" alt="start" height="100"></button>
@@ -119,6 +119,8 @@
       var time = 60
       var gameRun = true
       var moleTime = 2000
+      var covcan = true
+      var cov = false
 
       document.body.onkeydown = function(e){
         if(e.keyCode == 81){
@@ -127,8 +129,9 @@
         else if (e.keyCode == 87) {
           jaraxxus()
         }
-        else if(e.keyCode == 69){
-          covid()
+        else if(e.keyCode == 69&&covcan){
+          score=score-2
+          cov=true
         }
         document.getElementById('scoreDisp').innerHTML=score;
 
@@ -142,7 +145,7 @@
           moleTime=4000
           setTimeout(function(){moleTime = 2000}, 8000)
           cc=false
-          setTimeout(function(){cc=true;document.getElementById("CC").style.visibility="visible"}, 10000)
+          setTimeout(function(){cc=true;document.getElementById("CC").style.visibility="visible"}, 5000)
         }
       }
 
@@ -163,14 +166,18 @@
         }
       }
 
-      var cov = true
-      function covid(){
+
+      function covid(num1, num2){
         if(cov){
           document.getElementById("covid").style.visibility="hidden";
-          score=score-5
 
-          cov=false
-          setTimeout(function(){cov=true;document.getElementById("covid").style.visibility="visible"}, 10000)
+          moleClicked("mole"+(num1+1)+(num2))
+          moleClicked("mole"+(num1-1)+(num2))
+          moleClicked("mole"+(num1)+(num2+1))
+          moleClicked("mole"+(num1)+(num2-1))
+
+          covcan=false
+          setTimeout(function(){covcan=true;document.getElementById("covid").style.visibility="visible"}, 2000)
         }
       }
 
@@ -216,9 +223,16 @@
         document.getElementById('timeDisp').innerHTML=time;
       }
       function moleClicked(moleNum){
-        document.getElementById(moleNum).style.visibility="hidden"
-        score = score+1
-        document.getElementById('scoreDisp').innerHTML=score;
+        if(document.getElementById(moleNum).style.visibility=="visible"){
+
+          document.getElementById(moleNum).style.visibility="hidden"
+          score = score+1
+          document.getElementById('scoreDisp').innerHTML=score;
+          if(cov){
+            covid(parseInt(moleNum.substring(4, 5)), parseInt(moleNum.substring(5, 6)))
+            cov=false
+          }
+        }
 
       }
     </script>
