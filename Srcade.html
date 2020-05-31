@@ -168,13 +168,19 @@
 
 
       function covid(num1, num2){
-        if(cov){
+        if(cov&&num1>0&&num1<6&&num2>0&&num2<6){
+          document.getElementById("scoreDisp").innerHTML="COV"
           document.getElementById("covid").style.visibility="hidden";
 
-          moleClicked("mole"+(num1+1)+(num2))
-          moleClicked("mole"+(num1-1)+(num2))
-          moleClicked("mole"+(num1)+(num2+1))
-          moleClicked("mole"+(num1)+(num2-1))
+          if (num1<5)
+            {moleClicked("mole"+(num1+1)+(num2))}
+          if (num1>1)
+            {moleClicked("mole"+(num1-1)+(num2))}
+          if (num2<5)
+            {moleClicked("mole"+(num1)+(num2+1))}
+          if (num2>1)
+            {moleClicked("mole"+(num1)+(num2-1))}
+          cov=false
 
           covcan=false
           setTimeout(function(){covcan=true;document.getElementById("covid").style.visibility="visible"}, 2000)
@@ -228,10 +234,8 @@
           document.getElementById(moleNum).style.visibility="hidden"
           score = score+1
           document.getElementById('scoreDisp').innerHTML=score;
-          if(cov){
-            covid(parseInt(moleNum.substring(4, 5)), parseInt(moleNum.substring(5, 6)))
-            cov=false
-          }
+          covid(parseInt(moleNum.substring(4, 5)), parseInt(moleNum.substring(5, 6)))
+
         }
 
       }
