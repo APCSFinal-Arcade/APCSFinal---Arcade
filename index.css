@@ -24,4 +24,8 @@ body{
 }
 .logo{
   background-color: white;
+  padding: 100px;
+  display: flex;
+  justify-content: flex-start;
+
 }
