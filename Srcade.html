@@ -172,7 +172,7 @@
 
       function covid(num1, num2){
         if(cov&&num1>0&&num1<6&&num2>0&&num2<6){
-          document.getElementById("scoreDisp").innerHTML="COV"
+          document.getElementById("scoreDisp").innerHTML=score;
           document.getElementById("covid").style.visibility="hidden";
 
           if (num1<5)
@@ -207,10 +207,10 @@
         gameRun = false
         document.write("Game Over! Your score is: "+score+"!<br>")
         if(score==69){
-          document.write("That's a NICE score!")
+          document.write("That's a NICE score!<br>")
         }
         else if(score==420){
-          document.write("That's a HIGH score!")
+          document.write("That's a HIGH score!<br>")
         }
         document.write("Reload the page to play again!")
       }
